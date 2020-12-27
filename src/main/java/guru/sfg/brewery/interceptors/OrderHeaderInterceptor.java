@@ -31,6 +31,9 @@ import java.io.Serializable;
 /**
  * Catch order updates
  */
+// This is a Hibernate Interceptor - you can put a hook into Hibernate to capture a change event
+// so when the order status changes, it throws out an application event right into hibernate
+
 @Slf4j
 @Component
 public class OrderHeaderInterceptor extends EmptyInterceptor {

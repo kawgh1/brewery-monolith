@@ -25,7 +25,7 @@ public class InventoryService {
     }
 
     @Transactional
-    @Scheduled(fixedRate = 5000) //run every 5 seconds
+    @Scheduled(fixedRate = 9000) //run every 9 seconds
     public void checkInventory(){
         List<Beer> beers = beerRepository.findAll();
 

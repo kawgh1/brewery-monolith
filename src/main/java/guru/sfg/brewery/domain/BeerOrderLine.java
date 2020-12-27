@@ -33,6 +33,8 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @Entity
+
+// Beer Order Line is the beer and quantity ordered by the customer in the Beer Order
 public class BeerOrderLine extends BaseEntity {
 
     @Builder

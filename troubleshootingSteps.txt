@@ -1,0 +1,39 @@
+Took me a long time to get this to work.
+
+Move the less folder from main/ to resources/static.resources/ (with fonts and images folders)
+
+in pom.xml under wro4j plugin under build at bottom change file path for less folder
+
+<contextFolder>${basedir}/src/main/resources/less</contextFolder>
+
+and under properties set
+<webjars-bootstrap.version>3.3.7-1</webjars-bootstrap.version>
+
+and add this dependency (less4j - used as CSS Post Processor in wro.properties)
+
+<!-- https://mvnrepository.com/artifact/com.github.sommeri/less4j -->
+<dependency>
+    <groupId>com.github.sommeri</groupId>
+    <artifactId>less4j</artifactId>
+    <version>1.17.2</version>
+</dependency>
+-------------------------------------------------------------------------------------------------
+- download these fonts and put in resources/fonts folder
+    - https://github.com/Mobirise/Free-Bootstrap-Template/tree/master/assets/bootstrap/fonts
+--------------------------------------------------------------------------------------------------
+in the wro/wro.xml file change to
+
+<groups xmlns="http://www.isdc.ro/wro">
+  <group name="brewery">
+      <css>webjar:bootstrap/3.3.7-1/less/bootstrap.less</css>
+      <css>webjar:bootstrap/3.3.7-1/less/bootstrap.less</css>
+      <css>file:@project.basedir@/src/main/wro/main.less</css>
+   </group>
+</groups>
+--------------------------------------------------------------------------------------------------
+once you've done all these, run maven clean, maven package (or maven clean, regular build)
+
+check generated target folder
+target/classes/static/resources/css/brewery.css
+
+brewery.css should be generated. If it is missing, it won't work. If css folder is missing, even further off track.

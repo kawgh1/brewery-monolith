@@ -29,6 +29,10 @@ import java.util.UUID;
 /**
  * Created by jt on 2019-01-26.
  */
+
+// Modeling Inventory separately as its own class, we could make it part of the Beer Order or Beer classes,
+//    but in practice, Inventory is often its own separate system and needs to be kept independent of its products
+
 @Getter
 @Setter
 @NoArgsConstructor
